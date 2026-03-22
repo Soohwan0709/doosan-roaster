@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doosan Bears | 실시간 1군 엔트리</title>
+    <meta name="description" content="두산 베어스의 실시간 1군 로스터(엔트리)를 확인하세요. 매시간 KBO 공식 데이터를 바탕으로 자동 업데이트됩니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <img id="team-logo" src="https://upload.wikimedia.org/wikipedia/en/9/98/Doosan_Bears.svg" alt="Doosan Bears Logo" class="team-logo" onerror="this.style.display='none'">
+                    <div>
+                        <h1>DOOSAN BEARS</h1>
+                        <p class="subtitle">실시간 1군 엔트리 현황</p>
+                    </div>
+                </div>
+                <div class="status-area">
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        <span class="status-text">LIVE KBO DATA</span>
+                    </div>
+                    <p id="last-updated" class="timestamp">업데이트 중...</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="loader" class="loader-container">
+                <div class="spinner"></div>
+                <p>KBO 공식 사이트에서 데이터를 불러오는 중입니다...</p>
+            </div>
+
+            <div id="error-message" class="error-container hidden">
+                <div class="error-icon">⚠️</div>
+                <h2>데이터를 불러올 수 없습니다</h2>
+                <p id="error-text">네트워크 연결이나 KBO 사이트 상태를 확인해주세요.</p>
+                <button id="retry-btn" class="retry-button">다시 시도</button>
+            </div>
+
+            <div id="roster-content" class="roster-grid hidden">
+                <section class="roster-section" id="section-투수">
+                    <div class="section-header">
+                        <h2>투수 <span>Pitchers</span></h2>
+                        <div class="count-badge" id="count-투수">0</div>
+                    </div>
+                    <div class="player-list glass-panel" id="list-투수">
+                        <!-- Pitchers injected here -->
+                    </div>
+                </section>
+
+                <section class="roster-section" id="section-포수">
+                    <div class="section-header">
+                        <h2>포수 <span>Catchers</span></h2>
+                        <div class="count-badge" id="count-포수">0</div>
+                    </div>
+                    <div class="player-list glass-panel" id="list-포수">
+                        <!-- Catchers injected here -->
+                    </div>
+                </section>
+
+                <section class="roster-section" id="section-내야수">
+                    <div class="section-header">
+                        <h2>내야수 <span>Infielders</span></h2>
+                        <div class="count-badge" id="count-내야수">0</div>
+                    </div>
+                    <div class="player-list glass-panel" id="list-내야수">
+                        <!-- Infielders injected here -->
+                    </div>
+                </section>
+
+                <section class="roster-section" id="section-외야수">
+                    <div class="section-header">
+                        <h2>외야수 <span>Outfielders</span></h2>
+                        <div class="count-badge" id="count-외야수">0</div>
+                    </div>
+                    <div class="player-list glass-panel" id="list-외야수">
+                        <!-- Outfielders injected here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>본 사이트의 데이터는 <a href="https://www.koreabaseball.com/Player/Register.aspx" target="_blank">KBO 공식 홈페이지</a>를 기준으로 1시간마다 업데이트됩니다.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
